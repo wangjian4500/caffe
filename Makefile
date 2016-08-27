@@ -138,7 +138,7 @@ LIBRARIES := cudart cublas curand \
 	lmdb \
 	boost_system \
 	hdf5_hl hdf5 \
-	opencv_core opencv_highgui opencv_imgproc
+	opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs
 PYTHON_LIBRARIES := boost_python python2.7
 WARNINGS := -Wall -Wno-sign-compare
 
@@ -306,7 +306,7 @@ $(MAT$(PROJECT)_SO): $(MAT$(PROJECT)_SRC) $(STATIC_NAME)
 	fi
 	$(MATLAB_DIR)/bin/mex $(MAT$(PROJECT)_SRC) $(STATIC_NAME) \
 			CXXFLAGS="\$$CXXFLAGS $(MATLAB_CXXFLAGS)" \
-			CXXLIBS="\$$CXXLIBS $(LDFLAGS)" -o $@
+			CXXLIBS="\$$CXXLIBS $(LDFLAGS)" -output $@
 	@ echo
 
 runtest: $(TEST_ALL_BIN)
